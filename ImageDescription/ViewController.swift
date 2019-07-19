@@ -24,7 +24,12 @@ class ViewController: UIViewController {
         
         let imageAnalyze : RequestObject = RequestObject.init(url: "https://images1.americanlisted.com/nlarge/blue-eyes-siberian-husky-puppies-americanlisted_102019335.jpg")
         
-        imageAnalyze.sendRequest()
+        imageAnalyze.sendRequest() { isValid in
+            print(isValid)
+            DispatchQueue.main.async {
+                self.imgDescription = imageAnalyze.caption
+            }
+        }
         
         displayImg(url: URL(string: "https://images1.americanlisted.com/nlarge/blue-eyes-siberian-husky-puppies-americanlisted_102019335.jpg")!)
         
