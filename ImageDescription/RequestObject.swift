@@ -18,7 +18,7 @@ class RequestObject
     var tags : [String] = []
     
     //Remember to remove your key before pushing to github
-    var apiKey = ""
+    var apiKey = "96f2d53f13b74d6c88b2665b7b18aa77"
     
     init(url :String)
     {
