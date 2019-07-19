@@ -16,7 +16,7 @@ class RequestObject
     var caption : String
     var tags : [String]
     
-    var apiKey = "96f2d53f13b74d6c88b2665b7b18aa77"
+    var apiKey = ""
     
     init(url :String)
     {
