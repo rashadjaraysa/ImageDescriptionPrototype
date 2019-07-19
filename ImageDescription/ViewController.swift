@@ -13,7 +13,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var descriptionText: UITextView!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     var imgDescription : String = ""
+    
+    //var urlArray = ["","","","","","","","","","","","","","",]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +34,11 @@ class ViewController: UIViewController {
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
                 let description = json["description"] as! [String : AnyObject]
+                let tags = description["tags"] as! [String]
                 let captions = description["captions"]?.firstObject as? [String : AnyObject]
                 self.imgDescription = (captions?["text"] as? String)!
                 print(self.imgDescription)
+                print(tags)
             }catch{
                 print("error")
             }
@@ -40,20 +46,26 @@ class ViewController: UIViewController {
         
         task.resume()
         
-        // Do any additional setup after loading the view.
+        displayImg(url: URL(string: "https://images1.americanlisted.com/nlarge/blue-eyes-siberian-husky-puppies-americanlisted_102019335.jpg")!)
+        
     }
-    
-    //
-    //    @objc func timer() {
-    //        //placeholder
-    //    }
-    //
+
     @IBAction func btnPressed(_ sender: UIButton) {
         descriptionText.text = self.imgDescription
     }
-    //        var gameTimer: Timer?
-    //        var gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(timer), userInfo: nil, repeats: false)
-    //        gameTimer.fire()
-    //        textField.text = imgDescription
+    
+    func displayImg(url: URL)
+    {
+        let data = try? Data(contentsOf: url)
+        
+        if let imageData = data {
+            let image = UIImage(data: imageData)
+            imageView.image = image!
+        }
+        else{
+            print("Error getting the image. Please make sure the url is correct!")
+        }
+    }
+
 }
 
