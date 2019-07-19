@@ -22,29 +22,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/describe?maxCandidates=1")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("96f2d53f13b74d6c88b2665b7b18aa77", forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
+        let imageAnalyze : RequestObject = RequestObject.init(url: "https://images1.americanlisted.com/nlarge/blue-eyes-siberian-husky-puppies-americanlisted_102019335.jpg")
         
-        request.httpBody = "{\"url\":\"https://images1.americanlisted.com/nlarge/blue-eyes-siberian-husky-puppies-americanlisted_102019335.jpg\"}".data(using: .utf8)
-        
-        let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
-                let description = json["description"] as! [String : AnyObject]
-                let tags = description["tags"] as! [String]
-                let captions = description["captions"]?.firstObject as? [String : AnyObject]
-                self.imgDescription = (captions?["text"] as? String)!
-                print(self.imgDescription)
-                print(tags)
-            }catch{
-                print("error")
-            }
-        })
-        
-        task.resume()
+        imageAnalyze.sendRequest()
         
         displayImg(url: URL(string: "https://images1.americanlisted.com/nlarge/blue-eyes-siberian-husky-puppies-americanlisted_102019335.jpg")!)
         

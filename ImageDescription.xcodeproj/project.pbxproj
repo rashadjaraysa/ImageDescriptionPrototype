@@ -14,6 +14,7 @@
 		E65C97E922E12374009173C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E65C97E722E12374009173C6 /* LaunchScreen.storyboard */; };
 		E65C97F422E12374009173C6 /* ImageDescriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65C97F322E12374009173C6 /* ImageDescriptionTests.swift */; };
 		E65C97FF22E12374009173C6 /* ImageDescriptionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65C97FE22E12374009173C6 /* ImageDescriptionUITests.swift */; };
+		E65C980F22E14CE9009173C6 /* RequestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65C980E22E14CE9009173C6 /* RequestObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E65C97FA22E12374009173C6 /* ImageDescriptionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageDescriptionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65C97FE22E12374009173C6 /* ImageDescriptionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDescriptionUITests.swift; sourceTree = "<group>"; };
 		E65C980022E12374009173C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E65C980E22E14CE9009173C6 /* RequestObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				E65C97DE22E12374009173C6 /* AppDelegate.swift */,
 				E65C97E022E12374009173C6 /* ViewController.swift */,
+				E65C980E22E14CE9009173C6 /* RequestObject.swift */,
 				E65C97E222E12374009173C6 /* Main.storyboard */,
 				E65C97E522E12374009173C6 /* Assets.xcassets */,
 				E65C97E722E12374009173C6 /* LaunchScreen.storyboard */,
@@ -258,6 +261,7 @@
 			files = (
 				E65C97E122E12374009173C6 /* ViewController.swift in Sources */,
 				E65C97DF22E12374009173C6 /* AppDelegate.swift in Sources */,
+				E65C980F22E14CE9009173C6 /* RequestObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
