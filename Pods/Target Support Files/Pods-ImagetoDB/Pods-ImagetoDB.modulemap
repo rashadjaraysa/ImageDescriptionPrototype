@@ -1,0 +1,6 @@
+framework module Pods_ImagetoDB {
+  umbrella header "Pods-ImagetoDB-umbrella.h"
+
+  export *
+  module * { export * }
+}
