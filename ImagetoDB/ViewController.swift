@@ -14,12 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var descriptionText: UITextView!
     var imgDescription : String = ""
     var imageObjects : [Images] = []
+  
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
-        
-        let ref = Database.database().reference()
         
         let imageAnalyze : RequestObject = RequestObject.init()
 
@@ -29,62 +28,29 @@ class ViewController: UIViewController {
             self.imgDescription = imageAnalyze.caption
             self.imageObjects = imageAnalyze.imageObjects;
             }
-            
+
         }
         
         
-        _ = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.addToFirebase), userInfo: nil, repeats: false)
-        self.addToFirebase()
+//        _ = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.addToFirebase), userInfo: nil, repeats: false)
+//        addToFirebase()
         
-//        ref.child
-        
-        //lines 21 and and 22 add data to DB
-//        ref.child("1").setValue(["name":"Tom","role":"Admin","age":30])
-//        ref.childByAutoId().setValue(["name":"Tom","role":"Admin","age":30])
-        
-        //lines 26 - 35 retrieve data from database
-        
-//        ref.child(String(1)).observeSingleEvent(of: .value)
-//        {
-//          Retrieves one value from specified key
-//            (snapshot) in let name = snapshot.value as? Any
-//
-//            print(name)
-            
-//            If its more than one key value pair then then you can retrieve the data as a dictionary and get the pieces of data that you need from the dictionary
-            
-//            (snapshot) in let employeedata = snapshot.value as? [String:Any]
-//        }
-        
-        //lines 37-44
-        //update one value
-//        ref.child("1").setValue(["name":"Abshir","role":"Admin","age":22])
-    
-        //Update multiple values
-//        let updates = ["1": ["name":"Abshir","role":"Coolguy","age":22]]
-//
-//        ref.updateChildValues(updates)
-    
-        //line 49 deletes a value from the database
-//        ref.child("1").removeValue()
-//    }
-
-
 }
     
-   
+
     @objc func addToFirebase(){
+//        let ref = Database.database().reference()
+        var imgObj:Images;
         if(self.imageObjects.count > 0){
+            print("here")
             //Add image objects to firebase db
-            for img in imageObjects:
-            {
-                ref.child("1").setValue(["name":"Tom","role":"Admin","age":30])
+            for i in 0...imageObjects.count-1{
+                imgObj = imageObjects[i]
+                ref.child(String(i+1)).setValue(["url":imgObj.url,"caption":imgObj.caption,
+                                                 "apiCaption":imgObj.apiCaption,"isDescribed":"false"])
             }
-            
         }
-        
     }
-    
 
     @IBAction func nextButton(_ sender: UIButton) {
     }
