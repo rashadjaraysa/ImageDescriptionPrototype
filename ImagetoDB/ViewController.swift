@@ -32,14 +32,14 @@ class ViewController: UIViewController {
         }
         
         
-//        _ = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.addToFirebase), userInfo: nil, repeats: false)
-//        addToFirebase()
+        _ = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.addToFirebase), userInfo: nil, repeats: false)
+        addToFirebase()
         
 }
     
 
     @objc func addToFirebase(){
-//        let ref = Database.database().reference()
+        let ref = Database.database().reference()
         var imgObj:Images;
         if(self.imageObjects.count > 0){
             print("here")
@@ -51,21 +51,5 @@ class ViewController: UIViewController {
             }
         }
     }
-
-    @IBAction func nextButton(_ sender: UIButton) {
-    }
-    
-//    func displayImg(url: URL)
-//    {
-//        let data = try? Data(contentsOf: url)
-//
-//        if let imageData = data {
-//            let image = UIImage(data: imageData)
-//            imageView.image = image!
-//        }
-//        else{
-//            print("Error getting the image. Please make sure the url is correct!")
-//        }
-//    }
 
 }
