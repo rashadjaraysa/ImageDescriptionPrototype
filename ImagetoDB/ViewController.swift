@@ -42,7 +42,6 @@ class ViewController: UIViewController {
         let ref = Database.database().reference()
         var imgObj:Images;
         if(self.imageObjects.count > 0){
-            print("here")
             //Add image objects to firebase db
             for i in 0...imageObjects.count-1{
                 imgObj = imageObjects[i]
